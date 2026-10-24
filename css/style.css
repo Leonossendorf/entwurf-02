@@ -76,48 +76,45 @@ sup { font-size: .6em; }
 .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin: 26px 0 18px; }
 .hand { font: 600 1.9rem/1 "Caveat", cursive; color: var(--holz); transform: rotate(-2deg); margin: 8px 0 0 4px; }
 
-/* Wegweiser: Holzbretter mit Maserung, Licht von links oben, Schatten auf Pfosten und Grund */
-:root {
-  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1400' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.0035 0.21' numOctaves='4' seed='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.22 0 0 0 0 0.12 0 0 0 0 0.05 2.6 0 0 0 -1.15'/%3E%3C/filter%3E%3Crect width='1400' height='160' filter='url(%23g)'/%3E%3C/svg%3E");
-  --grain-v: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='600'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.3 0.004' numOctaves='3' seed='9'/%3E%3CfeColorMatrix values='0 0 0 0 0.18 0 0 0 0 0.1 0 0 0 0 0.04 2.4 0 0 0 -1.1'/%3E%3C/filter%3E%3Crect width='60' height='600' filter='url(%23g)'/%3E%3C/svg%3E");
-}
-.post { position: relative; display: flex; flex-direction: column; align-items: center; gap: 14px; padding: 22px 0 40px; }
-.pole { position: absolute; top: -4px; bottom: 0; left: 50%; width: 26px; transform: translateX(-50%); border-radius: 2px 2px 0 0;
-  background: var(--grain-v) center / 60px 600px, linear-gradient(90deg, #3B2413 0%, #6A4324 24%, #8F5F37 46%, #6A4324 74%, #352011 100%);
-  box-shadow: 8px 2px 16px rgba(40,25,10,.22); }
-.pole::before { content: ""; position: absolute; top: -12px; left: -3px; right: -3px; height: 14px; background: linear-gradient(90deg, #3B2413, #7E522D 50%, #3B2413); clip-path: polygon(50% 0, 100% 100%, 0 100%); }
-.board { --rot: 0deg; --tx: 18%; --push: 7px; position: relative; z-index: 1; display: block; width: min(360px, 92%); color: #FFF6E6; text-decoration: none;
-  filter: drop-shadow(0 7px 6px rgba(45,28,12,.30)) drop-shadow(0 1px 1px rgba(45,28,12,.45));
-  transform: translateX(var(--tx)) rotate(var(--rot)); transition: transform .35s cubic-bezier(.2,.7,.2,1); }
-.board.l { --tx: -18%; --push: -7px; }
-.board:hover, .board:focus-visible { transform: translateX(calc(var(--tx) + var(--push))) rotate(var(--rot)); outline: none; }
-.board:focus-visible .plank { outline: 3px solid var(--glut); outline-offset: -6px; }
-.plank { display: block; position: relative; padding: 13px 46px 13px 30px;
-  background:
-    linear-gradient(180deg, rgba(255,236,200,.30) 0, rgba(255,236,200,0) 3px, rgba(0,0,0,0) calc(100% - 4px), rgba(30,14,4,.40) 100%),
-    linear-gradient(105deg, rgba(255,244,222,.14), rgba(255,244,222,0) 45%, rgba(20,10,0,.10) 100%),
-    var(--grain) var(--gx, 0) var(--gy, 0) / 1400px 160px,
-    linear-gradient(180deg, #A9733F, #8C5B33 55%, #714727);
-  clip-path: polygon(0 0, calc(100% - 28px) 0, 100% 50%, calc(100% - 28px) 100%, 0 100%); }
-.board.l .plank { padding: 13px 30px 13px 46px; text-align: right; clip-path: polygon(28px 0, 100% 0, 100% 100%, 28px 100%, 0 50%); }
-.plank::after { content: ""; position: absolute; top: 50%; left: 11px; width: 10px; height: 10px; margin-top: -5px; border-radius: 50%;
-  background: linear-gradient(40deg, transparent 43%, rgba(45,38,30,.85) 44% 56%, transparent 57%), radial-gradient(circle at 35% 30%, #EFE8DA 0, #ABA192 38%, #625A4E 72%, #3A342C 100%);
-  box-shadow: 0 1px 1px rgba(0,0,0,.45); }
-.board.l .plank::after { left: auto; right: 11px; }
-.plank b { display: block; font: 750 1.32rem/1.15 "Bitter", serif; letter-spacing: .005em; text-shadow: 0 1px 0 rgba(40,18,4,.6), 0 -1px 0 rgba(255,232,196,.10); }
-.plank small { display: block; font-size: .86rem; color: #F2DFC3; margin-top: 2px; text-shadow: 0 1px 0 rgba(40,18,4,.5); }
-.b1 .plank { background:
-    linear-gradient(180deg, rgba(255,236,200,.24) 0, rgba(255,236,200,0) 3px, rgba(0,0,0,0) calc(100% - 4px), rgba(20,8,2,.45) 100%),
-    linear-gradient(105deg, rgba(255,244,222,.12), rgba(255,244,222,0) 45%, rgba(20,10,0,.12) 100%),
-    var(--grain) 0 -40px / 1400px 160px,
-    linear-gradient(180deg, #7C4B28, #61391D 60%, #4F2E17); }
-.b1 b { font-size: 1.5rem; }
-.b2 { --rot: 1.5deg; --gx: -120px; } .b1 { --rot: -2deg; }
-.b3 { --rot: -1deg; --gx: -260px; --gy: -60px; }
-.b4 { --rot: 2deg; --gx: -380px; --gy: -20px; }
-.b5 { --rot: -1.5deg; --gx: -60px; --gy: -100px; }
-.b6 { --rot: 1deg; --gx: -200px; --gy: -80px; }
-.tag { display: inline-block; font: 700 .74rem/1 "Public Sans", sans-serif; background: var(--glut); color: #2A1606; padding: 4px 7px; border-radius: 3px; margin-bottom: 6px; text-shadow: none; box-shadow: 0 1px 2px rgba(0,0,0,.3); }
+/* Wegweiser im Wanderweg-Stil: verwitterte Bretter, am Pfosten genagelt, Schrift eingebrannt */
+.post { --nx: 40px; position: relative; display: flex; flex-direction: column; gap: 20px; padding: 30px 0 46px; }
+.pole { position: absolute; z-index: 0; top: 0; bottom: 0; left: 50%; width: 30px; transform: translateX(-50%);
+  background: linear-gradient(90deg, rgba(25,14,6,.55) 0, rgba(25,14,6,0) 30%, rgba(255,240,215,.10) 48%, rgba(25,14,6,0) 66%, rgba(25,14,6,.5) 100%), url("../img/pfosten.jpg") center top / 100% auto repeat-y;
+  clip-path: polygon(0 10px, 50% 0, 100% 10px, 100% 100%, 0 100%); }
+.board { --rot: 0deg; --push: 6px; --w: 330px; position: relative; z-index: 1; display: block; width: min(var(--w), calc(50% + var(--nx) - 2px)); color: #2B160A; text-decoration: none;
+  filter: drop-shadow(4px 6px 4px rgba(28,18,8,.36));
+  transform-origin: var(--nx) 50%; transform: rotate(var(--rot)); transition: transform .35s cubic-bezier(.2,.7,.2,1); }
+.board.r { margin-left: calc(50% - var(--nx)); }
+.board.l { --push: -6px; margin-left: calc(50% + var(--nx) - min(var(--w), calc(50% + var(--nx) - 2px))); transform-origin: calc(100% - var(--nx)) 50%; }
+.board:hover, .board:focus-visible { transform: rotate(var(--rot)) translateX(var(--push)); outline: none; }
+.board:focus-visible .plank { outline: 3px solid var(--glut); outline-offset: -5px; }
+.plank { --tex: url("../img/holz-1.jpg"); display: block; position: relative; padding: 15px 38px 14px calc(var(--nx) + 16px);
+  background: linear-gradient(180deg, rgba(255,240,214,.35) 0, rgba(255,240,214,0) 2px, rgba(0,0,0,0) calc(100% - 4px), rgba(35,18,6,.45) 100%), linear-gradient(90deg, rgba(40,22,8,.30) 0, rgba(40,22,8,0) 10px, rgba(40,22,8,0) calc(100% - 46px), rgba(40,22,8,.28) 100%), var(--tex) var(--gx, 0) var(--gy, 0) / 900px auto;
+  clip-path: polygon(0 4%, 2% 0, 38% 2%, 61% 0, calc(100% - 30px) 1%, 100% 52%, calc(100% - 28px) 100%, 63% 97%, 30% 100%, 3% 98%, 0 93%); }
+.board.l .plank { --tex: url("../img/holz-2.jpg"); padding: 15px calc(var(--nx) + 16px) 14px 38px; text-align: right;
+  background: linear-gradient(180deg, rgba(255,240,214,.35) 0, rgba(255,240,214,0) 2px, rgba(0,0,0,0) calc(100% - 4px), rgba(35,18,6,.45) 100%), linear-gradient(270deg, rgba(40,22,8,.30) 0, rgba(40,22,8,0) 10px, rgba(40,22,8,0) calc(100% - 46px), rgba(40,22,8,.28) 100%), var(--tex) var(--gx, 0) var(--gy, 0) / 900px auto;
+  clip-path: polygon(30px 1%, 42% 0, 70% 2%, 98% 0, 100% 6%, 100% 95%, 97% 100%, 66% 98%, 36% 100%, 28px 99%, 0 49%); }
+.b3 .plank, .board.b6 .plank { --tex: url("../img/holz-3.jpg"); }
+/* Nägel genau über dem Pfosten */
+.plank::before, .plank::after { content: ""; position: absolute; left: calc(var(--nx) - 5px); width: 10px; height: 10px; border-radius: 50%;
+  background: radial-gradient(circle at 38% 34%, #B9AE9C 0, #7D6F5E 30%, #5B4433 58%, #3A2516 78%, rgba(30,16,6,0) 100%);
+  box-shadow: 1px 1px 1px rgba(20,10,2,.45), inset 0 0 0 1px rgba(110,62,30,.35); }
+.plank::before { top: 5px; } .plank::after { bottom: 5px; }
+.board.l .plank::before, .board.l .plank::after { left: auto; right: calc(var(--nx) - 5px); }
+.plank b { display: block; font: 800 1.34rem/1.12 "Bitter", serif; letter-spacing: .01em; color: #2B160A;
+  text-shadow: 0 1px 0 rgba(255,238,210,.30), 0 0 1px rgba(43,22,10,.6), 0 0 5px rgba(70,36,12,.22); }
+.plank small { display: block; font: 600 .84rem/1.3 "Bitter", serif; color: #3A2212; margin-top: 3px; text-shadow: 0 1px 0 rgba(255,238,210,.25), 0 0 1px rgba(43,22,10,.4); }
+.b1 { --rot: -4deg; --w: 370px; } .b1 b { font-size: 1.5rem; }
+.b2 { --rot: 3deg; --w: 290px; --gx: -300px; }
+.b3 { --rot: -1.5deg; --w: 320px; --gx: -120px; --gy: -20px; }
+.b4 { --rot: 4.5deg; --w: 280px; --gx: -500px; --gy: -10px; }
+.b5 { --rot: -2.5deg; --w: 345px; --gx: -220px; --gy: -40px; }
+.b6 { --rot: 2deg; --w: 315px; --gx: -420px; --gy: -30px; }
+/* kleines Emailleschild */
+.tag { position: absolute; z-index: 2; top: -12px; right: 46px; font: 700 .72rem/1 "Public Sans", sans-serif; color: var(--tanne); background: linear-gradient(180deg, #FBF7EC, #EDE6D3); padding: 6px 12px; border-radius: 3px;
+  box-shadow: 0 2px 3px rgba(28,18,8,.35), inset 0 0 0 1.5px #2F5A3A; transform: rotate(5deg); white-space: nowrap; }
+.tag::before, .tag::after { content: ""; position: absolute; top: 50%; width: 3px; height: 3px; margin-top: -1.5px; border-radius: 50%; background: #6B6152; }
+.tag::before { left: 4px; } .tag::after { right: 4px; }
 
 .treeline { position: absolute; left: 0; bottom: -1px; width: max(100%, 1200px); height: 90px; fill: var(--tanne); }
 
@@ -303,14 +300,6 @@ sup { font-size: .6em; }
   .hero-cta { display: none; }
   .hand { display: none; }
   .post { gap: 9px; padding: 6px 0 24px; align-items: stretch; }
-  .pole { left: 14px; transform: none; width: 16px; }
-  .pole::before { left: -5px; right: -5px; }
-  .board.r, .board.l { --tx: 0px; --push: 4px; width: auto; }
-  .board .plank, .board.l .plank { padding: 11px 38px 11px 40px; text-align: left; clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 50%, calc(100% - 22px) 100%, 0 100%); }
-  .board .plank::after, .board.l .plank::after { left: 17px; right: auto; }
-  .plank b { font-size: 1.18rem; }
-  .b1 b { font-size: 1.3rem; }
-  .plank small { font-size: .8rem; }
   .kamin, .golf, .fest, .wirt, .schlafen, .anfrage, .lage { padding: 56px 0; }
   .kit { grid-template-columns: 1fr; }
   .kp-real { width: 52%; right: -4px; }
@@ -338,7 +327,22 @@ sup { font-size: .6em; }
   .hero .lead { display: none; }
   .hero-in { gap: 6px; }
   .post { gap: 7px; }
-  .board .plank, .board.l .plank { padding-top: 8px; padding-bottom: 8px; }
-  .b1 .tag { position: absolute; right: 30px; top: 9px; margin: 0; }
-  .b1 b { font-size: 1.22rem; }
+}
+
+/* Handy: kurze Bretter links und rechts am Pfosten, mit Luft */
+@media (max-width: 640px) {
+  .post { --nx: 20px; gap: 16px; padding: 34px 0 34px; }
+  .pole { width: 18px; }
+  .board { --push: 4px; }
+  .board.l { --push: -4px; }
+  .plank, .board.l .plank { padding-top: 13px; padding-bottom: 12px; }
+  .plank { padding-left: calc(var(--nx) + 10px); padding-right: 28px; clip-path: polygon(0 4%, 2% 0, 38% 2%, 61% 0, calc(100% - 22px) 1%, 100% 52%, calc(100% - 21px) 100%, 63% 97%, 30% 100%, 3% 98%, 0 93%); }
+  .board.l .plank { padding-left: 28px; padding-right: calc(var(--nx) + 10px); clip-path: polygon(22px 1%, 42% 0, 70% 2%, 98% 0, 100% 6%, 100% 95%, 97% 100%, 66% 98%, 36% 100%, 21px 99%, 0 49%); }
+  .plank::before, .plank::after { width: 8px; height: 8px; left: calc(var(--nx) - 4px); }
+  .board.l .plank::before, .board.l .plank::after { right: calc(var(--nx) - 4px); }
+  .plank::before { top: 4px; } .plank::after { bottom: 4px; }
+  .plank b, .b1 b { font-size: 1.02rem; }
+  .plank small { font-size: .72rem; }
+  .b1 { --rot: -3deg; } .b2 { --rot: 2.5deg; } .b3 { --rot: -1.5deg; } .b4 { --rot: 3deg; } .b5 { --rot: -2deg; } .b6 { --rot: 1.5deg; }
+  .tag { top: -14px; right: 28px; font-size: .64rem; padding: 5px 9px; }
 }
